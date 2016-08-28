@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <h1>Rest Client</h1>
+
+  <form>
+    <div class="form-group">
+      <label for="url">URL</label>
+      <input type="text" class="form-control" id="url" placeholder="http://">
+    </div>
+    <button type="button" class="btn btn-default">Send</button>
+  </form>
+
+  <ul class="list-group">
+    <li *ngFor="let call of calls" class="list-group-item">{{call.url}}</li>
+  </ul>
+
+</div>

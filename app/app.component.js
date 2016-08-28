@@ -9,13 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var call_1 = require('./call');
 var AppComponent = (function () {
     function AppComponent() {
+        this.calls = [
+            new call_1.Call(1, "GET", "http://www.google.com"),
+            new call_1.Call(2, "GET", "http://www.naver.com"),
+            new call_1.Call(3, "GET", "http://www.daum.net"),
+        ];
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<h1>My First Angular 2 App</h1>'
+            templateUrl: 'app/app.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
