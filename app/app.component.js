@@ -12,12 +12,22 @@ var core_1 = require('@angular/core');
 var call_1 = require('./call');
 var AppComponent = (function () {
     function AppComponent() {
+        this.currentCall = new call_1.Call(0, "GET", "http://");
         this.calls = [
             new call_1.Call(1, "GET", "http://www.google.com"),
-            new call_1.Call(2, "GET", "http://www.naver.com"),
-            new call_1.Call(3, "GET", "http://www.daum.net")
+            new call_1.Call(2, "POST", "http://www.naver.com"),
+            new call_1.Call(3, "PUT", "http://www.daum.net"),
+            new call_1.Call(4, "DELETE", "http://www.nate.com")
         ];
+        this.history = [];
     }
+    AppComponent.prototype.setCall = function (call) {
+        this.currentCall = call;
+    };
+    AppComponent.prototype.addCall = function (method, url) {
+        var newCall = new call_1.Call(0, method, url);
+        this.history.push(newCall);
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
