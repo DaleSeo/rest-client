@@ -15,7 +15,7 @@ var AppComponent = (function () {
         this.calls = [
             new call_1.Call(1, "GET", "http://www.google.com"),
             new call_1.Call(2, "GET", "http://www.naver.com"),
-            new call_1.Call(3, "GET", "http://www.daum.net"),
+            new call_1.Call(3, "GET", "http://www.daum.net")
         ];
     }
     AppComponent = __decorate([
