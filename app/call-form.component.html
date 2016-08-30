@@ -1,0 +1,41 @@
+<div  [hidden]="submitted">
+  <h2>Call Form</h2>
+  <form *ngIf="active" (ngSubmit)="onSubmit()" #callForm="ngForm">
+    {{diagnostic}}
+    <div class="form-group">
+      <label for="method">Method</label>
+      <select [(ngModel)]="model.method" name="method" class="form-control" id="method" required>
+        <option *ngFor="let method of methods" [value]="method">{{method}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="url">URL</label>
+      <input [(ngModel)]="model.url" name="url" type="text" class="form-control" id="url" placeholder="http://" required #url="ngModel">
+      <div [hidden]="url.valid || url.pristine" class="alert alert-danger">Url is required</div>
+    </div>
+    <div class="form-group">
+      <label for="body">Body</label>
+      <input [(ngModel)]="model.body" name="body" type="text" class="form-control" id="body">
+    </div>
+    <button type="button" class="btn btn-default" (click)="newCall()">New Call</button>
+    <button (click)="addCall(method.value, url.value)" type="button" class="btn btn-default">Send</button>
+    <button type="submit" class="btn btn-default" [disabled]="!callForm.form.valid">Submit</button>
+  </form>
+</div>
+<div [hidden]="!submitted">
+  <h2>You submitted the following:</h2>
+  <div class="row">
+    <div class="col-xs-3">Method</div>
+    <div class="col-xs-9  pull-left">{{ model.method }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">URL</div>
+    <div class="col-xs-9 pull-left">{{ model.url }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-3">Body</div>
+    <div class="col-xs-9 pull-left">{{ model.body }}</div>
+  </div>
+  <br>
+  <button class="btn btn-default" (click)="submitted=false">Edit</button>
+</div>

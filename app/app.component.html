@@ -1,22 +1,14 @@
 <div class="container-fluid">
   <h1>Rest Client</h1>
 
-  <form>
-    <div class="form-group">
-      <label for="method">Method</label>
-      <input #method type="text" class="form-control" id="method" placeholder="GET" value="{{currentCall.method}}">
-    </div>
-    <div class="form-group">
-      <label for="url">URL</label>
-      <input #url type="text" class="form-control" id="url" placeholder="http://" value="{{currentCall.url}}">
-    </div>
-    <button (click)="addCall(method.value, url.value)" type="button" class="btn btn-default">Send</button>
-  </form>
+  <call-form></call-form>
 
+  <h2>Call List</h2>
   <ul class="list-group">
     <li *ngFor="let call of calls" (click)="setCall(call)" class="list-group-item">{{call.method}} {{call.url}}</li>
   </ul>
 
+  <h2>Call History</h2>
   <ul class="list-group">
     <li *ngFor="let call of history" (click)="setCall(call)" class="list-group-item">{{call.method}} {{call.url}}</li>
   </ul>
