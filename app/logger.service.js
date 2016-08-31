@@ -9,23 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var call_1 = require('./call');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.history = [];
+var Logger = (function () {
+    function Logger() {
+        this.logs = []; // capture logs for testing
     }
-    AppComponent.prototype.addCall = function (method, url) {
-        var newCall = new call_1.Call(0, method, url);
-        this.history.push(newCall);
+    Logger.prototype.log = function (message) {
+        this.logs.push(message);
+        console.log(message);
     };
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/app.component.html'
-        }), 
+    Logger = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], Logger);
+    return Logger;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.Logger = Logger;
+//# sourceMappingURL=logger.service.js.map

@@ -1,4 +1,4 @@
-<div  [hidden]="submitted">
+<div [hidden]="submitted">
   <h2>Call Form</h2>
   <form *ngIf="active" (ngSubmit)="onSubmit()" #callForm="ngForm">
     {{diagnostic}}

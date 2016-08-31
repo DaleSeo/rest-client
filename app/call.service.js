@@ -8,24 +8,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var core_1 = require('@angular/core');
-var call_1 = require('./call');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.history = [];
+var mock_calls_1 = require('./mock-calls');
+var logger_service_1 = require('./logger.service');
+var CallService = (function () {
+    function CallService(logger) {
+        this.logger = logger;
     }
-    AppComponent.prototype.addCall = function (method, url) {
-        var newCall = new call_1.Call(0, method, url);
-        this.history.push(newCall);
+    CallService.prototype.getCalls = function () {
+        if (this.logger) {
+            this.logger.log('Getting calls ...');
+        }
+        return mock_calls_1.CALLS;
     };
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/app.component.html'
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    CallService = __decorate([
+        core_1.Injectable(),
+        __param(0, core_1.Optional()), 
+        __metadata('design:paramtypes', [logger_service_1.Logger])
+    ], CallService);
+    return CallService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.CallService = CallService;
+//# sourceMappingURL=call.service.js.map

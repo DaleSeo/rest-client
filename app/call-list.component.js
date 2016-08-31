@@ -10,22 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var call_1 = require('./call');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.history = [];
+var call_service_1 = require('./call.service');
+var CallListComponent = (function () {
+    function CallListComponent(callService) {
+        this.callService = callService;
+        this.currentCall = new call_1.Call(0, "GET", "http://");
+        this.calls = callService.getCalls();
     }
-    AppComponent.prototype.addCall = function (method, url) {
-        var newCall = new call_1.Call(0, method, url);
-        this.history.push(newCall);
+    CallListComponent.prototype.setCall = function (call) {
+        this.currentCall = call;
     };
-    AppComponent = __decorate([
+    CallListComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            templateUrl: 'app/app.component.html'
+            selector: 'call-list',
+            templateUrl: 'app/call-list.component.html',
+            providers: [call_service_1.CallService]
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [call_service_1.CallService])
+    ], CallListComponent);
+    return CallListComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.CallListComponent = CallListComponent;
+//# sourceMappingURL=call-list.component.js.map

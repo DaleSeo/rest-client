@@ -13,6 +13,8 @@ var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var call_form_component_1 = require('./call-form.component');
+var call_list_component_1 = require('./call-list.component');
+var logger_service_1 = require('./logger.service');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -24,9 +26,11 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
-                call_form_component_1.CallFormComponent
+                call_form_component_1.CallFormComponent,
+                call_list_component_1.CallListComponent
             ],
-            bootstrap: [app_component_1.AppComponent]
+            bootstrap: [app_component_1.AppComponent],
+            providers: [logger_service_1.Logger]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

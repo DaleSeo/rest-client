@@ -4,6 +4,8 @@ import { FormsModule }   from '@angular/forms';
 
 import { AppComponent }  from './app.component';
 import { CallFormComponent } from './call-form.component';
+import { CallListComponent } from './call-list.component';
+import { Logger } from './logger.service';
 
 @NgModule({
   imports: [
@@ -12,8 +14,10 @@ import { CallFormComponent } from './call-form.component';
   ],
   declarations: [
     AppComponent,
-    CallFormComponent
+    CallFormComponent,
+    CallListComponent
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
+  providers: [ Logger ]
 })
 export class AppModule { }
