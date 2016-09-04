@@ -14,12 +14,28 @@ var call_service_1 = require('./call.service');
 var CallListComponent = (function () {
     function CallListComponent(callService) {
         this.callService = callService;
+        this.counterValue = 0;
+        this.counterChange = new core_1.EventEmitter();
         this.currentCall = new call_1.Call(0, "GET", "http://");
         this.calls = callService.getCalls();
     }
     CallListComponent.prototype.setCall = function (call) {
         this.currentCall = call;
     };
+    CallListComponent.prototype.updateCounter = function (counterValue) {
+        this.counterValue = counterValue;
+        this.counterChange.emit({
+            value: this.counterValue
+        });
+    };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Number)
+    ], CallListComponent.prototype, "counterValue", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], CallListComponent.prototype, "counterChange", void 0);
     CallListComponent = __decorate([
         core_1.Component({
             selector: 'call-list',

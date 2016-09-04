@@ -6,10 +6,17 @@ import { CallService } from './call.service';
   templateUrl: 'app/app.component.html'
 })
 export class AppComponent {
+  myValue = 2;
+  methods = ['GET', 'POST', 'PUT', 'DELETE'];
+
   history: Call[] = [];
 
-  addCall(method: string, url: string) {
-    var newCall = new Call(0, method, url);
-    this.history.push(newCall);
+  addCall(event) {
+    console.log(event)
+    this.history.push(event);
+  }
+
+  myValueChange(event) {
+    console.log(event);
   }
 }

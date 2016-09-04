@@ -1,4 +1,5 @@
 <h2>Call List</h2>
+<input [(ngModel)]="counterValue" name="counterValue" (click)="updateCounter(counterValue)">
 <ul class="list-group">
   <li *ngFor="let call of calls" (click)="setCall(call)" class="list-group-item">{{call.method}} {{call.url}}</li>
 </ul>

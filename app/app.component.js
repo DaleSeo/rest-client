@@ -9,14 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var call_1 = require('./call');
 var AppComponent = (function () {
     function AppComponent() {
+        this.myValue = 2;
+        this.methods = ['GET', 'POST', 'PUT', 'DELETE'];
         this.history = [];
     }
-    AppComponent.prototype.addCall = function (method, url) {
-        var newCall = new call_1.Call(0, method, url);
-        this.history.push(newCall);
+    AppComponent.prototype.addCall = function (event) {
+        console.log(event);
+        this.history.push(event);
+    };
+    AppComponent.prototype.myValueChange = function (event) {
+        console.log(event);
     };
     AppComponent = __decorate([
         core_1.Component({

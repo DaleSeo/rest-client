@@ -1,9 +1,9 @@
 <div class="container-fluid">
   <h1>Rest Client</h1>
 
-  <call-form></call-form>
+  <call-form [methods]="methods" (historyAdded)="addCall($event)"></call-form>
 
-  <call-list></call-list>
+  <call-list [counterValue]="myValue" (counterChange)="myValueChange($event)"></call-list>
 
   <h2>Call History</h2>
   <ul class="list-group">
