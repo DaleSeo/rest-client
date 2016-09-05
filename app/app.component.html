@@ -1,13 +1,12 @@
-<div class="container-fluid">
-  <h1>Rest Client</h1>
-
-  <call-form [methods]="methods" (historyAdded)="addCall($event)"></call-form>
-
-  <call-list [counterValue]="myValue" (counterChange)="myValueChange($event)"></call-list>
-
-  <h2>Call History</h2>
-  <ul class="list-group">
-    <li *ngFor="let call of history" (click)="setCall(call)" class="list-group-item">{{call.method}} {{call.url}}</li>
-  </ul>
-
+<h1>Rest Client</h1>
+<div class="row">
+  <div class="col-xs-3">
+    <call-list [counterValue]="myValue" (counterChange)="myValueChange($event)"></call-list>
+  </div>
+  <div class="col-xs-6">
+    <call-form [methods]="methods" (historyAdded)="addCall($event)"></call-form>
+  </div>
+  <div class="col-xs-3">
+    <call-history></call-history>
+  </div>
 </div>

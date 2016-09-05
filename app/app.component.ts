@@ -1,19 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Call } from './call';
-import { CallService } from './call.service';
+import { CallHistoryComponent } from './call-history.component';
 @Component({
   selector: 'my-app',
   templateUrl: 'app/app.component.html'
 })
 export class AppComponent {
+  @ViewChild(CallHistoryComponent) history;
+
   myValue = 2;
   methods = ['GET', 'POST', 'PUT', 'DELETE'];
 
-  history: Call[] = [];
-
   addCall(event) {
-    console.log(event)
-    this.history.push(event);
+    console.log(event);
+    this.history.addCall(event);
   }
 
   myValueChange(event) {

@@ -14,6 +14,7 @@ var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var call_form_component_1 = require('./call-form.component');
 var call_list_component_1 = require('./call-list.component');
+var call_history_component_1 = require('./call-history.component');
 var logger_service_1 = require('./logger.service');
 var AppModule = (function () {
     function AppModule() {
@@ -27,7 +28,8 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 call_form_component_1.CallFormComponent,
-                call_list_component_1.CallListComponent
+                call_list_component_1.CallListComponent,
+                call_history_component_1.CallHistoryComponent
             ],
             bootstrap: [app_component_1.AppComponent],
             providers: [logger_service_1.Logger]
