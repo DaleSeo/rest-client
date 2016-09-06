@@ -1,5 +1,5 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {Call}    from './call';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Call }    from './call';
 @Component({
   selector: 'call-form',
   templateUrl: 'app/call-form.component.html'
@@ -8,8 +8,8 @@ export class CallFormComponent {
   @Input()
   methods;
 
-  @Output()
-  historyAdded: EventEmitter<Call> = new EventEmitter();
+  // @Output()
+  // historyAdded: EventEmitter<Call> = new EventEmitter();
 
   submitted = false;
   active = true;
@@ -27,6 +27,6 @@ export class CallFormComponent {
 
   send() {
     console.log(this.model);
-    this.historyAdded.emit(this.model);
+    // this.historyAdded.emit(this.model);
   }
 }

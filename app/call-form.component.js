@@ -12,7 +12,8 @@ var core_1 = require('@angular/core');
 var call_1 = require('./call');
 var CallFormComponent = (function () {
     function CallFormComponent() {
-        this.historyAdded = new core_1.EventEmitter();
+        // @Output()
+        // historyAdded: EventEmitter<Call> = new EventEmitter();
         this.submitted = false;
         this.active = true;
         this.model = new call_1.Call(0, "GET", "http://www.google.com");
@@ -32,16 +33,12 @@ var CallFormComponent = (function () {
     });
     CallFormComponent.prototype.send = function () {
         console.log(this.model);
-        this.historyAdded.emit(this.model);
+        // this.historyAdded.emit(this.model);
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', Object)
     ], CallFormComponent.prototype, "methods", void 0);
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', core_1.EventEmitter)
-    ], CallFormComponent.prototype, "historyAdded", void 0);
     CallFormComponent = __decorate([
         core_1.Component({
             selector: 'call-form',

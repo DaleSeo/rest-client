@@ -7,6 +7,7 @@ import { CallFormComponent } from './call-form.component';
 import { CallListComponent } from './call-list.component';
 import { CallHistoryComponent } from './call-history.component';
 import { Logger } from './logger.service';
+import { AboutComponent } from './about.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { Logger } from './logger.service';
   ],
   declarations: [
     AppComponent,
+    AboutComponent,
     CallFormComponent,
     CallListComponent,
     CallHistoryComponent
